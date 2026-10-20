@@ -4,7 +4,7 @@
     <Navbar @open-theory="isTheoryOpen = true" />
 
     <!-- Main Container -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 space-y-5 sm:space-y-8 min-w-0 overflow-x-clip">
+    <main class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 space-y-5 sm:space-y-8 min-w-0">
       <!-- Tab điều hướng -->
       <div class="space-y-2 w-full min-w-0">
         <!-- Tab Bar: Hiển thị ĐẦY ĐỦ 4 CÔNG CỤ (Lưới 2x2 trên Mobile, 1 hàng ngang trên Desktop) -->
