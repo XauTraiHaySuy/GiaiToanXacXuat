@@ -2,9 +2,9 @@
   <footer class="border-t border-slate-800/80 bg-slate-950/90 backdrop-blur-md mt-12 sm:mt-16 text-slate-400 text-xs">
     <!-- Main Footer Grid -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      <div class="grid grid-cols-2 md:grid-cols-12 gap-6 sm:gap-8">
         <!-- Cột 1: Thông tin thương hiệu -->
-        <div class="col-span-2 lg:col-span-1 space-y-3.5">
+        <div class="col-span-2 md:col-span-6 space-y-3.5">
           <div class="flex items-center gap-3">
             <img
               src="/logoGTXX.png"
@@ -22,7 +22,7 @@
             </div>
           </div>
 
-          <p class="text-slate-400 leading-relaxed text-xs">
+          <p class="text-slate-400 leading-relaxed text-xs max-w-lg">
             Nền tảng hỗ trợ học sinh và giáo viên giải chi tiết, chuẩn mực từng bước các bài toán Xác suất và Đại số tổ hợp từ cơ bản đến Vận dụng cao (VDC).
           </p>
 
@@ -49,7 +49,7 @@
         </div>
 
         <!-- Cột 2: Các công cụ giải toán -->
-        <div class="col-span-1 space-y-3">
+        <div class="col-span-1 md:col-span-3 space-y-3">
           <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider flex items-center gap-1.5 sm:gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
             Công Cụ Giải Toán
@@ -112,7 +112,7 @@
         </div>
 
         <!-- Cột 3: Trọng tâm lý thuyết -->
-        <div class="col-span-1 space-y-3">
+        <div class="col-span-1 md:col-span-3 space-y-3">
           <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider flex items-center gap-1.5 sm:gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-math-blue"></span>
             Lý Thuyết Trọng Tâm
@@ -164,56 +164,17 @@
             </li>
           </ul>
         </div>
-
-        <!-- Cột 4: Hạ tầng Cloudflare -->
-        <div class="col-span-2 lg:col-span-1 space-y-3">
-          <h4 class="text-xs sm:text-sm font-bold text-white uppercase tracking-wider flex items-center gap-1.5 sm:gap-2">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            Hạ Tầng Cloudflare
-          </h4>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
-            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800 space-y-2">
-              <div class="flex items-center justify-between text-[11px]">
-                <span class="text-slate-400">Trạng thái:</span>
-                <span class="inline-flex items-center gap-1.5 font-bold text-emerald-400">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  Ready
-                </span>
-              </div>
-              <div class="text-[11px] text-slate-400 flex items-center justify-between">
-                <span>Kiến trúc:</span>
-                <span class="font-mono text-slate-300">Pages + Edge</span>
-              </div>
-              <div class="text-[11px] text-slate-400 flex items-center justify-between">
-                <span>AI Engine:</span>
-                <span class="font-mono text-brand-300">Dual-Engine</span>
-              </div>
-            </div>
-
-            <button
-              @click="scrollToTop"
-              type="button"
-              class="w-full py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-600 text-slate-300 hover:text-white transition flex items-center justify-center gap-1.5 font-medium text-xs h-full min-h-[42px]"
-              title="Cuộn lên đầu trang"
-            >
-              <svg class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-              </svg>
-              <span>Lên đầu trang</span>
-            </button>
-          </div>
-        </div>
       </div>
     </div>
 
     <!-- Bottom Copyright Bar -->
-    <div class="border-t border-slate-800/80 bg-slate-950 py-4">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400 text-center sm:text-left">
-        <div>
-          <span>© 2026 <strong>Giải Toán Xác Xuất</strong>. Phần mềm giáo dục phi lợi nhuận hỗ trợ kỳ thi Tốt nghiệp THPT & Đánh giá năng lực.</span>
+    <div class="border-t border-slate-800/80 bg-slate-950 py-3.5 sm:py-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-2.5 sm:gap-3 text-slate-400 text-center md:text-left">
+        <div class="text-[10.5px] sm:text-[11px]">
+          <span>© 2026 <strong>Giải Toán Xác Xuất</strong>. Phần mềm giáo dục phi lợi nhuận hỗ trợ kỳ thi THPT & Đánh giá năng lực.</span>
         </div>
-        <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2 sm:gap-4 text-slate-400">
+        <!-- Toàn bộ 3 mục hiển thị gọn trên đúng 1 HÀNG DUY NHẤT -->
+        <div class="whitespace-nowrap flex items-center justify-center gap-1.5 sm:gap-3 text-[9.5px] sm:text-[11px] text-slate-400 max-w-full overflow-x-auto no-scrollbar">
           <span>Chuẩn Bareme Bộ GD&ĐT</span>
           <span>•</span>
           <span>Công thức KaTeX</span>
@@ -227,11 +188,4 @@
 
 <script setup>
 defineEmits(['select-tab', 'open-theory'])
-
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
 </script>
