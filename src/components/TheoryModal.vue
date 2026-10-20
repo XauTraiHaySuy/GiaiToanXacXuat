@@ -1,26 +1,26 @@
 <template>
-  <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-    <div class="bg-slate-900 border border-slate-700/80 rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl overflow-hidden">
+  <div v-if="isOpen" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/75 backdrop-blur-sm animate-fadeIn">
+    <div class="bg-slate-900 border border-slate-700/80 rounded-2xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden min-w-0">
       <!-- Modal Header -->
-      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/60">
-        <div class="flex items-center gap-2">
-          <span class="p-1.5 rounded-lg bg-brand-500/20 text-brand-400">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div class="px-4 sm:px-6 py-3 sm:py-4 border-b border-slate-800 flex items-center justify-between bg-slate-950/70 gap-2 min-w-0">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="p-1 sm:p-1.5 rounded-lg bg-brand-500/20 text-brand-400 flex-shrink-0">
+            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
             </svg>
           </span>
-          <h3 class="text-lg font-bold text-white">Sổ Tay Công Thức Xác Suất THPT (GDPT 2018)</h3>
+          <h3 class="text-sm sm:text-base md:text-lg font-bold text-white truncate">Sổ Tay Công Thức Xác Suất (GDPT 2018)</h3>
         </div>
         <button
           @click="$emit('close')"
-          class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition"
+          class="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 transition flex-shrink-0"
         >
           &times;
         </button>
       </div>
 
       <!-- Modal Body -->
-      <div class="p-6 overflow-y-auto space-y-6 text-slate-300 text-sm">
+      <div class="p-4 sm:p-6 overflow-y-auto space-y-5 sm:space-y-6 text-slate-300 text-xs sm:text-sm custom-scrollbar">
         <!-- Phần 1: Đại số tổ hợp (Lớp 10) -->
         <div class="space-y-3">
           <div class="flex items-center gap-2 text-brand-400 font-bold border-b border-slate-800 pb-1.5">

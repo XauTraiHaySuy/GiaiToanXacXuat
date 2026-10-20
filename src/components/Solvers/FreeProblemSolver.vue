@@ -29,11 +29,11 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start w-full min-w-0">
       <!-- Input Panel (Sticky Sidebar) -->
-      <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-4 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1 custom-scrollbar">
+      <div class="lg:col-span-5 w-full min-w-0 lg:sticky lg:top-24 space-y-4 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1 custom-scrollbar">
         <div
-          class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-4 transition-colors"
+          class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-4 transition-colors"
           :class="{ 'border-rose-500/60 bg-rose-950/20': isDragging }"
           @dragover.prevent="isDragging = true"
           @dragleave.prevent="isDragging = false"
@@ -240,9 +240,9 @@
       </div>
 
       <!-- Solution Output Panel -->
-      <div class="lg:col-span-7">
+      <div class="lg:col-span-7 w-full min-w-0">
         <!-- Khi đang tải -->
-        <div v-if="isLoading" class="bg-slate-900/90 border border-slate-800 rounded-2xl p-8 space-y-6 text-center shadow-xl">
+        <div v-if="isLoading" class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6 text-center shadow-xl">
           <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center mx-auto animate-bounce">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
@@ -250,7 +250,7 @@
           </div>
 
           <div class="space-y-2">
-            <h4 class="text-lg font-bold text-white">{{ currentLoadingStep }}</h4>
+            <h4 class="text-base sm:text-lg font-bold text-white">{{ currentLoadingStep }}</h4>
             <p class="text-xs text-slate-400 max-w-md mx-auto">
               Chuyên gia AI đang phân tích đề bài, nhận diện công thức KaTeX và lập luận chặt chẽ theo Bareme chấm thi THPT...
             </p>
@@ -262,16 +262,16 @@
         </div>
 
         <!-- Khi có lời giải -->
-        <div v-else-if="solutionHtml" class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl relative">
-          <!-- Top bar: 1 HÀNG DUY NHẤT -->
-          <div class="flex items-center justify-between gap-3 border-b border-slate-800 pb-4">
-            <div class="flex items-center gap-2.5 min-w-0">
+        <div v-else-if="solutionHtml" class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-5 sm:space-y-6 shadow-xl relative min-w-0">
+          <!-- Top bar: Header & Copy Button -->
+          <div class="flex items-center justify-between gap-2 sm:gap-3 border-b border-slate-800 pb-3 sm:pb-4 min-w-0">
+            <div class="flex items-center gap-2 sm:gap-2.5 min-w-0">
               <span class="p-1 rounded bg-rose-500/20 text-rose-400 flex-shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </span>
-              <h3 class="text-base sm:text-lg font-bold text-white whitespace-nowrap">
+              <h3 class="text-sm sm:text-base md:text-lg font-bold text-white truncate sm:whitespace-normal">
                 Lời giải chi tiết từ Chuyên gia Toán
               </h3>
             </div>

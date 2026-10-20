@@ -28,10 +28,10 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start w-full min-w-0">
       <!-- Input Panel (Sticky Sidebar) -->
-      <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-5 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1 custom-scrollbar">
-        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-5">
+      <div class="lg:col-span-5 w-full min-w-0 lg:sticky lg:top-24 space-y-4 sm:space-y-5 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1 custom-scrollbar">
+        <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-4 sm:space-y-5">
           <div class="flex items-center justify-between">
             <h3 class="text-base font-semibold text-white flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-math-blue"></span>
@@ -139,40 +139,42 @@
       </div>
 
       <!-- Solution Output Panel -->
-      <div class="lg:col-span-7">
-        <div v-if="solution" class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-6 shadow-xl relative">
+      <div class="lg:col-span-7 w-full min-w-0 space-y-6">
+        <div v-if="solution" class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-5 sm:space-y-6 shadow-xl relative min-w-0">
           <!-- Top bar -->
-          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
-            <div>
-              <h3 class="text-lg font-bold text-white flex items-center gap-2">
-                <span class="p-1 rounded bg-blue-500/20 text-blue-400">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3 sm:pb-4 gap-2 min-w-0">
+            <div class="min-w-0">
+              <h3 class="text-base sm:text-lg font-bold text-white flex items-center gap-2 truncate">
+                <span class="p-1 rounded bg-blue-500/20 text-blue-400 flex-shrink-0">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </span>
                 Lời giải tự luận chuẩn THPT
               </h3>
-              <p class="text-xs text-slate-400 mt-0.5">Xác suất biến cố độc lập & công thức nhân xác suất</p>
+              <p class="text-xs text-slate-400 mt-0.5 hidden sm:block">Xác suất biến cố độc lập & công thức nhân xác suất</p>
             </div>
 
-            <CopySolutionButton :text="plainTextSolution" />
+            <div class="flex-shrink-0">
+              <CopySolutionButton :text="plainTextSolution" />
+            </div>
           </div>
 
           <!-- Highlight kết quả -->
-          <div class="p-4 rounded-xl bg-gradient-to-br from-blue-950/60 to-slate-950 border border-blue-500/30 flex items-center justify-between">
+          <div class="p-4 rounded-xl bg-gradient-to-br from-blue-950/60 to-slate-950 border border-blue-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
               <span class="text-xs font-semibold text-blue-300 uppercase tracking-wider block">Xác suất cần tính P(A)</span>
-              <div class="flex items-baseline gap-3 mt-1">
-                <span class="text-2xl font-extrabold text-white">
+              <div class="flex flex-wrap items-baseline gap-2 sm:gap-3 mt-1">
+                <span class="text-xl sm:text-2xl font-extrabold text-white">
                   <MathRenderer :latex="solution.resultFraction.latex" />
                 </span>
-                <span class="text-slate-400 text-sm font-mono">
+                <span class="text-slate-400 text-xs sm:text-sm font-mono">
                   ≈ {{ solution.resultFraction.decimalStr }} ({{ solution.resultFraction.percentageStr }})
                 </span>
               </div>
             </div>
 
-            <div class="text-right">
+            <div class="text-left sm:text-right border-t sm:border-t-0 pt-2 sm:pt-0 border-slate-800/80">
               <span class="text-xs text-slate-400 block">Dạng bài toán</span>
               <span class="text-xs font-mono font-semibold text-blue-400 px-2 py-1 rounded bg-blue-500/10 border border-blue-500/20 inline-block mt-1">
                 Biến cố độc lập (Toán 11)

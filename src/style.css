@@ -6,10 +6,18 @@
   color-scheme: dark;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  width: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   background-color: #020617;
   color: #f8fafc;
+  min-height: 100vh;
 }
 
 /* Custom scrollbars */
@@ -42,3 +50,25 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(148, 163, 184, 0.4);
 }
+
+/* Hide scrollbar for horizontal swipe tabs on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile KaTeX responsive scrolling & wrap */
+.katex-display {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch !important;
+  padding: 4px 0 !important;
+}
+.katex {
+  max-width: 100%;
+}
+

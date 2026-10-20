@@ -1,21 +1,21 @@
 <template>
   <header class="sticky top-0 z-40 w-full border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between gap-2 sm:gap-4 min-w-0">
       <!-- Logo & Brand -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 sm:gap-3 min-w-0">
         <img
           src="/logoGTXX.png"
           alt="Logo Giải Toán Xác Xuất"
-          class="w-10 h-10 rounded-xl object-contain shadow-lg shadow-brand-500/10 bg-slate-900 border border-slate-800 p-0.5 flex-shrink-0"
+          class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-contain shadow-lg shadow-brand-500/10 bg-slate-900 border border-slate-800 p-0.5 flex-shrink-0"
         />
-        <div>
-          <div class="flex items-center gap-2">
-            <h1 class="text-base sm:text-lg font-black text-white tracking-tight">Giải Toán <span class="text-brand-400">Xác Xuất</span></h1>
-            <span class="hidden sm:inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-brand-500/10 text-brand-400 border border-brand-500/20">
+        <div class="min-w-0">
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <h1 class="text-sm sm:text-base md:text-lg font-black text-white tracking-tight truncate">Giải Toán <span class="text-brand-400">Xác Xuất</span></h1>
+            <span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-brand-500/10 text-brand-400 border border-brand-500/20 flex-shrink-0">
               GDPT 2018
             </span>
           </div>
-          <p class="text-[11px] text-slate-400 hidden sm:block">Chuyên Giải & Trình Bày Tự Luận Toán Xác Suất Cấp 3</p>
+          <p class="text-[11px] text-slate-400 hidden sm:block truncate">Chuyên Giải & Trình Bày Tự Luận Toán Xác Suất Cấp 3</p>
         </div>
       </div>
 

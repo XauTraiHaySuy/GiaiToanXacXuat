@@ -50,7 +50,7 @@
 
         <!-- Cột 2: Các công cụ giải toán -->
         <div class="space-y-3">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider whitespace-nowrap flex items-center gap-2">
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
             Công Cụ Giải Toán
           </h4>
@@ -113,7 +113,7 @@
 
         <!-- Cột 3: Trọng tâm lý thuyết -->
         <div class="space-y-3">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider whitespace-nowrap flex items-center gap-2">
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-math-blue"></span>
             Lý Thuyết Trọng Tâm
           </h4>
@@ -121,7 +121,7 @@
             <li>
               <button
                 @click="$emit('open-theory')"
-                class="hover:text-slate-200 transition-colors text-left whitespace-nowrap block w-full"
+                class="hover:text-slate-200 transition-colors text-left block w-full"
               >
                 Hoán vị, Chỉnh hợp, Tổ hợp
               </button>
@@ -129,7 +129,7 @@
             <li>
               <button
                 @click="$emit('open-theory')"
-                class="hover:text-slate-200 transition-colors text-left whitespace-nowrap block w-full"
+                class="hover:text-slate-200 transition-colors text-left block w-full"
               >
                 Quy tắc cộng & Quy tắc nhân
               </button>
@@ -137,7 +137,7 @@
             <li>
               <button
                 @click="$emit('open-theory')"
-                class="hover:text-slate-200 transition-colors text-left whitespace-nowrap block w-full"
+                class="hover:text-slate-200 transition-colors text-left block w-full"
               >
                 Biến cố đối & Biến cố độc lập
               </button>
@@ -145,7 +145,7 @@
             <li>
               <button
                 @click="$emit('open-theory')"
-                class="hover:text-slate-200 transition-colors text-left whitespace-nowrap block w-full"
+                class="hover:text-slate-200 transition-colors text-left block w-full"
               >
                 Xác suất toàn phần & Bayes
               </button>
@@ -167,7 +167,7 @@
 
         <!-- Cột 4: Hạ tầng Cloudflare -->
         <div class="space-y-3">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider whitespace-nowrap flex items-center gap-2">
+          <h4 class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
             Hạ Tầng Cloudflare
           </h4>
@@ -209,11 +209,11 @@
 
     <!-- Bottom Copyright Bar -->
     <div class="border-t border-slate-800/80 bg-slate-950 py-4">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-400 text-center sm:text-left">
         <div>
           <span>© 2026 <strong>Giải Toán Xác Xuất</strong>. Phần mềm giáo dục phi lợi nhuận hỗ trợ kỳ thi Tốt nghiệp THPT & Đánh giá năng lực.</span>
         </div>
-        <div class="flex items-center gap-4 text-slate-400">
+        <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2 sm:gap-4 text-slate-400">
           <span>Chuẩn Bareme Bộ GD&ĐT</span>
           <span>•</span>
           <span>Công thức KaTeX</span>
