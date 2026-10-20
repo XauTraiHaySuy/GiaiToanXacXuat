@@ -53,7 +53,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import Navbar from './components/Navbar.vue'
 import BallDrawingSolver from './components/Solvers/BallDrawingSolver.vue'
 import IndependentEventsSolver from './components/Solvers/IndependentEventsSolver.vue'
@@ -61,6 +61,12 @@ import BayesTreeSolver from './components/Solvers/BayesTreeSolver.vue'
 import FreeProblemSolver from './components/Solvers/FreeProblemSolver.vue'
 import TheoryModal from './components/TheoryModal.vue'
 import Footer from './components/Footer.vue'
+import { useTheme } from './composables/useTheme'
+
+const { initTheme } = useTheme()
+onMounted(() => {
+  initTheme()
+})
 
 const currentTab = ref('balls')
 const isTheoryOpen = ref(false)
