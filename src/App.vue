@@ -7,26 +7,26 @@
     <main class="flex-grow max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 space-y-5 sm:space-y-8 min-w-0 overflow-x-clip">
       <!-- Tab điều hướng -->
       <div class="space-y-2 w-full min-w-0">
-        <!-- Tab Bar: Vuốt ngang mượt mà trên iOS và Android -->
-        <div class="w-full min-w-0 overflow-x-auto no-scrollbar scroll-smooth overscroll-x-contain py-1">
-          <div class="inline-flex sm:flex items-center gap-1.5 sm:gap-2 p-1.5 bg-slate-900/90 border border-slate-800 rounded-2xl shadow-inner min-w-max sm:min-w-0 sm:w-full">
+        <!-- Tab Bar: Hiển thị ĐẦY ĐỦ 4 CÔNG CỤ (Lưới 2x2 trên Mobile, 1 hàng ngang trên Desktop) -->
+        <div class="w-full p-1.5 bg-slate-900/90 border border-slate-800 rounded-2xl shadow-inner">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-1.5 sm:gap-2">
             <button
               v-for="tab in tabs"
               :key="tab.id"
               @click="currentTab = tab.id"
               type="button"
-              class="flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm whitespace-nowrap transition-all duration-200 flex-shrink-0 sm:flex-1"
+              class="flex items-center gap-2 sm:gap-2.5 p-2 sm:px-4 sm:py-2.5 rounded-xl font-medium text-xs sm:text-sm transition-all duration-200 text-left min-w-0"
               :class="currentTab === tab.id 
                 ? (tab.id === 'free' 
                     ? 'bg-gradient-to-r from-rose-500 via-pink-600 to-brand-500 text-white shadow-md shadow-rose-500/25 font-bold' 
                     : 'bg-gradient-to-r from-brand-600 to-teal-600 text-white shadow-md shadow-brand-600/25 font-bold') 
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'"
+                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60 bg-slate-950/40 sm:bg-transparent'"
             >
               <!-- SVG Icon Component theo từng tab -->
               <span class="w-4 h-4 flex-shrink-0" v-html="tab.iconSvg"></span>
-              <div class="text-left">
-                <span class="block leading-tight">{{ tab.name }}</span>
-                <span class="text-[10px] opacity-80 block truncate max-w-[140px] sm:max-w-none">{{ tab.grade }}</span>
+              <div class="min-w-0 flex-grow">
+                <span class="block leading-tight font-semibold text-xs sm:text-sm truncate">{{ tab.name }}</span>
+                <span class="text-[10px] opacity-80 block truncate">{{ tab.grade }}</span>
               </div>
             </button>
           </div>
