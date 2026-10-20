@@ -29,8 +29,8 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start w-full min-w-0">
-      <!-- Input Panel (Sticky Sidebar) -->
-      <div class="lg:col-span-5 w-full min-w-0 lg:sticky lg:top-24 space-y-4 sm:space-y-5 lg:max-h-[calc(100vh-7rem)] lg:overflow-y-auto pr-1 custom-scrollbar">
+      <!-- Input Panel -->
+      <div class="lg:col-span-5 w-full min-w-0 space-y-4 sm:space-y-5">
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-4 sm:space-y-5">
           <h3 class="text-base font-semibold text-white flex items-center gap-2">
             <span class="w-2 h-2 rounded-full bg-brand-400"></span>
