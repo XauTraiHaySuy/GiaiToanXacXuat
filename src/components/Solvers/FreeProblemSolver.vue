@@ -496,8 +496,7 @@ const toggleMirror = () => {
 let stepInterval = null
 
 onMounted(() => {
-  // Nạp sẵn đề mẫu đầu tiên
-  applySample(sampleProblems[0])
+  // Giữ ô nhập đề bài hoàn toàn trống để người dùng tự nhập đề hoặc dán ảnh
 })
 
 onUnmounted(() => {
