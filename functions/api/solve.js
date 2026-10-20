@@ -48,13 +48,33 @@ export async function onRequestPost({ request, env }) {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, x-gemini-key, x-kira-key',
-    'Content-Type': 'application/json; charset=utf-8'
+    'Content-Type': 'application/json; charset=utf-8',
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'SAMEORIGIN',
+    'Referrer-Policy': 'strict-origin-when-cross-origin'
   };
 
   try {
+    // 1. Kiểm tra giới hạn dung lượng request (Tối đa 15MB để tránh tấn công làm tràn bộ nhớ DoS)
+    const contentLength = parseInt(request.headers.get('content-length') || '0', 10);
+    if (contentLength > 15 * 1024 * 1024) {
+      return new Response(
+        JSON.stringify({ success: false, error: 'Dung lượng yêu cầu vượt quá giới hạn cho phép (tối đa 15MB).' }),
+        { status: 413, headers: corsHeaders }
+      );
+    }
+
     const body = await request.json().catch(() => ({}));
     const problem = (body.problem || '').trim();
     const attachment = body.attachment || body.image || null;
+
+    // 2. Giới hạn độ dài đề bài nhập tay (tối đa 20.000 ký tự)
+    if (problem.length > 20000) {
+      return new Response(
+        JSON.stringify({ success: false, error: 'Đề bài quá dài. Vui lòng rút gọn dưới 20.000 ký tự.' }),
+        { status: 400, headers: corsHeaders }
+      );
+    }
 
     if (!problem && (!attachment || !attachment.base64Data)) {
       return new Response(
@@ -63,9 +83,44 @@ export async function onRequestPost({ request, env }) {
       );
     }
 
+    // 3. Kiểm định định dạng tệp đính kèm (Whitelist MIME Types)
+    if (attachment && attachment.base64Data) {
+      const allowedMimes = [
+        'image/png', 'image/jpeg', 'image/jpg', 'image/webp', 'image/gif',
+        'application/pdf', 'text/plain',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      ];
+      if (attachment.mimeType && !allowedMimes.includes(attachment.mimeType.toLowerCase())) {
+        return new Response(
+          JSON.stringify({ success: false, error: 'Định dạng tệp không được hỗ trợ vì lý do an toàn.' }),
+          { status: 400, headers: corsHeaders }
+        );
+      }
+      // Giới hạn chuỗi base64 tối đa khoảng 16MB ký tự
+      if (typeof attachment.base64Data !== 'string' || attachment.base64Data.length > 16 * 1024 * 1024) {
+        return new Response(
+          JSON.stringify({ success: false, error: 'Dữ liệu tệp đính kèm vượt quá kích thước cho phép.' }),
+          { status: 413, headers: corsHeaders }
+        );
+      }
+    }
+
     // Lấy API keys từ biến môi trường Cloudflare hoặc headers/body
     const googleApiKey = env.GEMINI_API_KEY || request.headers.get('x-gemini-key') || body.geminiApiKey || '';
     const kiraApiKey = env.KIRA_API_KEY || request.headers.get('x-kira-key') || body.kiraApiKey || '';
+
+    // Hàm ẩn/che giấu secret trong thông báo lỗi để tránh rò rỉ
+    const maskSecrets = (msg) => {
+      if (!msg) return '';
+      let safe = String(msg);
+      if (googleApiKey && googleApiKey.length > 6) {
+        safe = safe.replaceAll(googleApiKey, '***GOOGLE_KEY***');
+      }
+      if (kiraApiKey && kiraApiKey.length > 6) {
+        safe = safe.replaceAll(kiraApiKey, '***KIRA_KEY***');
+      }
+      return safe;
+    };
 
     let solution = null;
     let engineUsed = '';
@@ -82,9 +137,10 @@ export async function onRequestPost({ request, env }) {
     }
 
     // --- ĐỘNG CƠ 1: Google Gemini Official (Mô hình gemini-3.5-flash-lite Multimodal) ---
+    // Sử dụng x-goog-api-key trong HTTP Header thay vì đưa key lên URL query params (Bảo mật tối đa)
     if (googleApiKey) {
       try {
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent?key=${encodeURIComponent(googleApiKey)}`;
+        const url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent';
         
         const parts = [{ text: promptText }];
         if (attachment && attachment.base64Data) {
@@ -98,7 +154,10 @@ export async function onRequestPost({ request, env }) {
 
         const res = await fetch(url, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'x-goog-api-key': googleApiKey
+          },
           body: JSON.stringify({
             contents: [
               {
@@ -122,10 +181,10 @@ export async function onRequestPost({ request, env }) {
           solution = data.candidates[0].content.parts[0].text;
           engineUsed = 'Google Gemini Official (3.5-Flash-Lite)';
         } else {
-          errors.push(`Google API (${res.status}): ${data?.error?.message || 'Không có kết quả'}`);
+          errors.push(`Google API (${res.status}): ${maskSecrets(data?.error?.message || 'Không có kết quả')}`);
         }
       } catch (err) {
-        errors.push(`Google API Network Error: ${err.message}`);
+        errors.push(`Google API Network Error: ${maskSecrets(err.message)}`);
       }
     }
 
@@ -167,10 +226,10 @@ export async function onRequestPost({ request, env }) {
           solution = data.choices[0].message.content;
           engineUsed = 'Kira AI Gateway (Gemini 4 Argon)';
         } else {
-          errors.push(`Kira API (${res.status}): ${data?.error?.message || 'Không có kết quả'}`);
+          errors.push(`Kira API (${res.status}): ${maskSecrets(data?.error?.message || 'Không có kết quả')}`);
         }
       } catch (err) {
-        errors.push(`Kira API Network Error: ${err.message}`);
+        errors.push(`Kira API Network Error: ${maskSecrets(err.message)}`);
       }
     }
 
@@ -195,7 +254,7 @@ export async function onRequestPost({ request, env }) {
     );
   } catch (err) {
     return new Response(
-      JSON.stringify({ success: false, error: `Lỗi xử lý server: ${err.message}` }),
+      JSON.stringify({ success: false, error: 'Đã có lỗi xử lý nội bộ phía máy chủ.' }),
       { status: 500, headers: corsHeaders }
     );
   }
@@ -207,7 +266,9 @@ export async function onRequestOptions() {
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, x-gemini-key, x-kira-key'
+      'Access-Control-Allow-Headers': 'Content-Type, x-gemini-key, x-kira-key',
+      'X-Content-Type-Options': 'nosniff',
+      'X-Frame-Options': 'SAMEORIGIN'
     }
   });
 }

@@ -25,3 +25,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cloudflare & Wrangler
+.wrangler
+.cloudflare
+
+# Certificates & Private Keys
+*.pem
+*.key
+*.cert
+

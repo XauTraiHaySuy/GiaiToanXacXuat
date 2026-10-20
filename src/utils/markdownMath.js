@@ -65,5 +65,25 @@ export function renderMarkdownWithMath(rawText) {
     html = html.replace(new RegExp(item.id, 'g'), item.html)
   }
 
+  // 5. Khử độc XSS (Sanitize HTML) để loại bỏ hoàn toàn các thẻ và thuộc tính nguy hiểm
+  return sanitizeHtml(html)
+}
+
+/**
+ * Hàm lọc các thẻ nguy cơ XSS như <script>, <iframe>, thuộc tính on* (onerror, onload...)
+ */
+function sanitizeHtml(html) {
+  if (!html) return ''
   return html
+    // Xóa thẻ script
+    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '')
+    // Xóa thẻ iframe, object, embed, form
+    .replace(/<iframe\b[^<]*(?:(?!<\/iframe>)<[^<]*)*<\/iframe>/gi, '')
+    .replace(/<object\b[^<]*(?:(?!<\/object>)<[^<]*)*<\/object>/gi, '')
+    .replace(/<embed\b[^>]*>/gi, '')
+    .replace(/<form\b[^<]*(?:(?!<\/form>)<[^<]*)*<\/form>/gi, '')
+    // Vô hiệu hóa javascript: trong href hoặc src
+    .replace(/(href|src)\s*=\s*["']?\s*javascript:[^"'>]+/gi, '$1="#"')
+    // Xóa các inline event handler như onload=, onerror=, onclick=
+    .replace(/\s+on[a-z]+\s*=\s*(?:'[^']*'|"[^"]*"|[^\s>]+)/gi, '')
 }
