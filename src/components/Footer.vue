@@ -174,12 +174,12 @@
           <span>© 2026 <strong>Giải Toán Xác Xuất</strong>. Phần mềm giáo dục phi lợi nhuận hỗ trợ kỳ thi THPT & Đánh giá năng lực.</span>
         </div>
         <!-- Toàn bộ 3 mục hiển thị gọn trên đúng 1 HÀNG DUY NHẤT -->
-        <div class="whitespace-nowrap flex items-center justify-center gap-1.5 sm:gap-3 text-[9.5px] sm:text-[11px] text-slate-400 max-w-full overflow-x-auto no-scrollbar">
-          <span>Chuẩn Bareme Bộ GD&ĐT</span>
-          <span>•</span>
-          <span>Công thức KaTeX</span>
-          <span>•</span>
-          <span>Cloudflare Pages & Functions</span>
+        <div class="flex flex-nowrap items-center justify-center gap-1.5 min-[390px]:gap-2 sm:gap-3 text-[9px] min-[390px]:text-[10px] sm:text-[11px] text-slate-400 max-w-full overflow-x-auto no-scrollbar whitespace-nowrap py-0.5">
+          <span class="flex-shrink-0 font-medium">Chuẩn Bareme Bộ GD&ĐT</span>
+          <span class="text-slate-600 flex-shrink-0">•</span>
+          <span class="flex-shrink-0 font-medium">Công thức KaTeX</span>
+          <span class="text-slate-600 flex-shrink-0">•</span>
+          <span class="flex-shrink-0 font-medium">Cloudflare Pages & Functions</span>
         </div>
       </div>
     </div>
