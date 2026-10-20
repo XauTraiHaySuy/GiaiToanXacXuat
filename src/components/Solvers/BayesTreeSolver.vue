@@ -635,7 +635,7 @@ const calculateSolution = () => {
 const plainTextSolution = computed(() => {
   if (!solution.value) return ''
   const s = solution.value
-  return `=== LỜI GIẢI TOÁN XÁC SUẤT TOÀN PHẦN & BAYES (GIẢI TOÁN XÁC XUẤT) ===
+  return `=== LỜI GIẢI TOÁN XÁC SUẤT TOÀN PHẦN & BAYES (GIẢI TOÁN XÁC SUẤT) ===
 Bài toán: Phân hoạch không gian mẫu gồm {A1: "${a1Name.value}", A2: "${a2Name.value}"}.
 Biến cố quan sát B: "${bName.value}".
 

@@ -545,7 +545,7 @@ const calculateSolution = () => {
 const plainTextSolution = computed(() => {
   if (!solution.value) return ''
   const s = solution.value
-  return `=== LỜI GIẢI TOÁN XÁC SUẤT ĐỘC LẬP (GIẢI TOÁN XÁC XUẤT) ===
+  return `=== LỜI GIẢI TOÁN XÁC SUẤT ĐỘC LẬP (GIẢI TOÁN XÁC SUẤT) ===
 Yêu cầu: Tính xác suất biến cố A: "${s.eventDesc}".
 
 BƯỚC 1: GỌI CÁC BIẾN CỐ THÀNH PHẦN

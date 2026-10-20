@@ -5,12 +5,12 @@
       <div class="flex items-center gap-2 sm:gap-3 min-w-0">
         <img
           src="/logoGTXX.png"
-          alt="Logo Giải Toán Xác Xuất"
+          alt="Logo Giải Toán Xác Suất"
           class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl object-contain shadow-lg shadow-brand-500/10 bg-slate-900 border border-slate-800 p-0.5 flex-shrink-0"
         />
         <div class="min-w-0">
           <div class="flex items-center gap-1.5 sm:gap-2">
-            <h1 class="text-sm sm:text-base md:text-lg font-black text-white tracking-tight truncate">Giải Toán <span class="text-brand-400">Xác Xuất</span></h1>
+            <h1 class="text-sm sm:text-base md:text-lg font-black text-white tracking-tight truncate">Giải Toán <span class="text-brand-400">Xác Suất</span></h1>
             <span class="hidden sm:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-brand-500/10 text-brand-400 border border-brand-500/20 flex-shrink-0">
               GDPT 2018
             </span>

@@ -1,4 +1,4 @@
-# Giải Toán Xác Xuất - THPT Chuyên Sâu
+# Giải Toán Xác Suất - THPT Chuyên Sâu
 
 > Ứng dụng web chuyên giải và hướng dẫn giải chi tiết từng bước các bài toán Xác suất cấp 3 (Lớp 10, 11, 12 theo Chương trình Giáo dục Phổ thông mới - GDPT 2018: Kết nối tri thức, Chân trời sáng tạo, Cánh diều), kết hợp công cụ tính toán chính xác và Trí tuệ nhân tạo (AI Gemini), sẵn sàng triển khai trên Cloudflare Pages & Functions.
 
@@ -111,4 +111,4 @@ git push -u origin master
    - Gắn biến môi trường `env.GEMINI_API_KEY` vào Function.
    - Cấp một đường dẫn miễn phí có HTTPS dạng: `https://probsolver-vn.pages.dev`.
 
-🎉 **Hoàn tất!** Giờ đây ứng dụng web Giải Toán Xác Xuất đã chạy trực tiếp trên toàn cầu với tốc độ cao của mạng lưới Cloudflare, giải mượt mà cả 4 dạng toán xác suất cho học sinh và thầy cô.
+🎉 **Hoàn tất!** Giờ đây ứng dụng web Giải Toán Xác Suất đã chạy trực tiếp trên toàn cầu với tốc độ cao của mạng lưới Cloudflare, giải mượt mà cả 4 dạng toán xác suất cho học sinh và thầy cô.

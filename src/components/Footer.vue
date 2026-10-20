@@ -8,12 +8,12 @@
           <div class="flex items-center gap-3">
             <img
               src="/logoGTXX.png"
-              alt="Logo Giải Toán Xác Xuất"
+              alt="Logo Giải Toán Xác Suất"
               class="w-10 h-10 rounded-xl object-contain shadow-lg shadow-brand-500/10 bg-slate-900 border border-slate-800 p-0.5 flex-shrink-0"
             />
             <div>
               <div class="flex items-center gap-2">
-                <span class="text-base font-black text-white tracking-tight">Giải Toán <span class="text-brand-400">Xác Xuất</span></span>
+                <span class="text-base font-black text-white tracking-tight">Giải Toán <span class="text-brand-400">Xác Suất</span></span>
                 <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-brand-500/10 text-brand-400 border border-brand-500/20">
                   GDPT 2018
                 </span>
@@ -170,8 +170,8 @@
     <!-- Bottom Copyright Bar -->
     <div class="border-t border-slate-800/80 bg-slate-950 py-3.5 sm:py-4">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-2.5 sm:gap-3 text-slate-400 text-center md:text-left">
-        <div class="text-[10.5px] sm:text-[11px]">
-          <span>© 2026 <strong>Giải Toán Xác Xuất</strong>. Phần mềm giáo dục phi lợi nhuận hỗ trợ kỳ thi THPT & Đánh giá năng lực.</span>
+        <div class="text-[10px] sm:text-[11px] whitespace-nowrap text-slate-400 flex items-center justify-center">
+          <span>© 2026 <strong class="text-slate-300 font-semibold">Giải Toán Xác Suất</strong> • Hỗ trợ ôn thi THPT & ĐGNL</span>
         </div>
         <!-- Toàn bộ 3 mục hiển thị gọn trên đúng 1 HÀNG DUY NHẤT -->
         <div class="flex flex-nowrap items-center justify-center gap-1.5 min-[390px]:gap-2 sm:gap-3 text-[9px] min-[390px]:text-[10px] sm:text-[11px] text-slate-400 max-w-full overflow-x-auto no-scrollbar whitespace-nowrap py-0.5">

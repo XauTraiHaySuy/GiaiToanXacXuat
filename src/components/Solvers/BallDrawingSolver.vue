@@ -610,7 +610,7 @@ const calculateSolution = () => {
 const plainTextSolution = computed(() => {
   if (!solution.value) return ''
   const s = solution.value
-  return `=== LỜI GIẢI TOÁN XÁC SUẤT (GIẢI TOÁN XÁC XUẤT) ===
+  return `=== LỜI GIẢI TOÁN XÁC SUẤT (GIẢI TOÁN XÁC SUẤT) ===
 Bài toán: Hộp có ${totalItems.value} viên bi, lấy ngẫu nhiên ${drawCount.value} viên bi.
 Yêu cầu: Tính xác suất biến cố A: "${s.eventDesc}".
 
